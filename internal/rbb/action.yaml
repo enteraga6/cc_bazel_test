@@ -21,12 +21,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v3
-        with:
-          persist-credentials: false
-      
+    steps: 
       - name: Setup Bazelisk
         uses: bazelbuild/setup-bazelisk@v2
       
