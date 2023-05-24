@@ -1,0 +1,4 @@
+bazel_dep(
+  name = "fmt",
+  version = "9.1.0",
+)

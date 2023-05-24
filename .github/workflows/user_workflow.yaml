@@ -1,0 +1,21 @@
+name: User Workflow
+
+on: 
+    workflow_dispatch:
+    release:
+        types: [created]
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        outputs:
+            hashes: ${{steps.hash.outputs.hashes}}
+        steps:
+            - name: Checkout Repo
+              uses: actions/checkout@v3
+              with:
+                persist-credentials: false
+              
+            - name: Reusable Workflow
+              uses: #TO ADD
+              with:
+                
