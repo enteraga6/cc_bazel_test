@@ -4,12 +4,15 @@ on:
   workflow_call:
     inputs:
       repo_path:
+        description: Path to the cloned repo
         required: true
         type: string
       targets:
+        description: Artifacts to build
         required: true
         type: string
       flags:
+        description: Flags for the bazel build command
         required: false
         type: string
         default: ""
@@ -38,9 +41,9 @@ jobs:
           mkdir binaries
 
           cd ./${{ inputs.repo_path }}
-          bazel build "${{ inputs.flags }}" "${{ inputs.targets }}"
+          bazel build ${{ inputs.flags }} ${{ inputs.targets }}
           
-          for TARGET in $TARGETS: do
+          for TARGET in ${{ inputs.targets }}: do
             CD_PATH = ${TARGET%:*}
             CD_PATH = ${CD_PATH////}
             BINARY_NAME = ${test#*:}
