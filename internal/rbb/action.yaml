@@ -4,15 +4,15 @@ on:
   workflow_call:
     inputs:
       repo_path:
-        description: Path to the cloned repo
+        description: "Path to the cloned repo"
         required: true
         type: string
       targets:
-        description: Artifacts to build
+        description: "Artifacts to build"
         required: true
         type: string
       flags:
-        description: Flags for the bazel build command
+        description: "Flags for the bazel build command"
         required: false
         type: string
         default: ""
