@@ -14,7 +14,7 @@ jobs:
                 persist-credentials: false
               
             - name: Reusable Workflow
-              uses: internal/rbb
+              uses: ./internal/rbb
               with:
                 repo_path: "./cc_bazel_test"     #USER INPUTTED MATERIAL??? wonder if can grab it from checkout
                 targets: "//src:fib //src:hello" #USER INPUTTED MATERIAL
