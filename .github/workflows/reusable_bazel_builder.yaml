@@ -4,7 +4,7 @@ on:
   workflow_call:
     inputs:
       repo_path:
-        reqiured: true
+        required: true
         type: string
       targets:
         required: true
@@ -13,7 +13,7 @@ on:
         required: false
         type: string
         default: ""
-    outputs:
+    
     
 jobs:
   build:

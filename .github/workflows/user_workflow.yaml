@@ -7,15 +7,21 @@ on:
 jobs:
     build:
         runs-on: ubuntu-latest
-        outputs:
-            hashes: ${{steps.hash.outputs.hashes}}
         steps:
             - name: Checkout Repo
               uses: actions/checkout@v3
-              with:
+              with: 
                 persist-credentials: false
               
             - name: Reusable Workflow
-              uses: #TO ADD
+              uses: ./workflows/reusable_bazel_builder.yaml
               with:
+                repo_path: "./cc_bazel_test"     #USER INPUTTED MATERIAL??? wonder if can grab it from checkout
+                targets: "//src:fib //src:hello" #USER INPUTTED MATERIAL
+
+            - name: Download Binaries
+              uses: actions/download-artifact@v3
+              with:
+                name: binaries
+        
                 
