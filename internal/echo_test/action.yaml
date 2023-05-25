@@ -11,9 +11,11 @@ inputs:
 jobs:
   greet:
     runs-on: ubuntu-latest
+    env:
+      GREET: ${{ inputs.who-to-greet }}
     shell: bash
     steps:
-      - run: echo Hello ${{ inputs.who-to-greet }}
+      - run: echo Hello $GREET
       
 # runs:
 #   using: "composite"
