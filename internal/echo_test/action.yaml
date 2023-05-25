@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     shell: bash
     steps:
-      - run: cho Hello ${{ inputs.who-to-greet }}
+      - run: echo Hello ${{ inputs.who-to-greet }}
       
 # runs:
 #   using: "composite"
