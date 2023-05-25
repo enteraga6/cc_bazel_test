@@ -8,10 +8,10 @@ jobs:
     build:
         runs-on: ubuntu-latest
         steps:
-            - name: Checkout Repo
-              uses: actions/checkout@v3
-              with: 
-                persist-credentials: false
+#             - name: Checkout Repo
+#               uses: actions/checkout@v3
+#               with: 
+#                 persist-credentials: false
               
             - name: Reusable Workflow
               uses: ./internal/example
