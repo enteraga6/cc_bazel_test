@@ -1,0 +1,17 @@
+name: User Workflow
+
+on: 
+    workflow_dispatch:
+    release:
+        types: [created]
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Repo
+              uses: actions/checkout@v3
+              with: 
+                persist-credentials: false
+              
+            - name: Reusable Workflow
+              uses: ./internal/echo_test
