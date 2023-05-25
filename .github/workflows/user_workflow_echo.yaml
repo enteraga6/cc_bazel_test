@@ -15,3 +15,5 @@ jobs:
               
             - name: Reusable Workflow
               uses: ./internal/echo_test
+              with:
+                who-to-greet: 'Noah'
