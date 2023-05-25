@@ -41,9 +41,9 @@ jobs:
 
           mkdir binaries
 
-          bazel build ${{ FLAGS }} ${{ TARGETS }}
+          bazel build ${{ inputs.flags }} ${{ inputs.targets }}
           
-          for TARGET in ${{ TARGETS }}: do
+          for TARGET in ${{ inputs.targets }}: do
             CD_PATH = ${TARGET%:*}
             CD_PATH = ${CD_PATH////}
             BINARY_NAME = ${test#*:}
