@@ -3,5 +3,6 @@ name: Echo Test
 on: [workflow_call]
 
 runs:
-  - name: Echo Test
-    command: echo "hello world"
+  using: "composite"
+  steps:
+    - run: echo Hello
