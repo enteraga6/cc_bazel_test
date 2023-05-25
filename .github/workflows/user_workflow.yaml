@@ -9,7 +9,7 @@ jobs:
 #         runs-on: ubuntu-latest
         uses: enteraga6/cc_bazel_test/.github/workflows/reusable_bazel_builder.yaml@main
         with:
-            repo_path: "./cc_bazel_test"     #USER INPUTTED MATERIAL??? wonder if can grab it from checkout
+#             repo_path: "./cc_bazel_test"     #USER INPUTTED MATERIAL??? wonder if can grab it from checkout
             targets: "//src:fib //src:hello" #USER INPUTTED MATERIAL
 #         steps:
 #             - name: Checkout Repo
