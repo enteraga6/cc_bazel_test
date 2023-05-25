@@ -9,12 +9,16 @@ inputs:
       default: 'World'
 
 jobs:
-  greet:
+  checkout-and-greet:
     runs-on: ubuntu-latest
     env:
       GREET: ${{ inputs.who-to-greet }}
     shell: bash
     steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+        with: 
+          persist-credentials: false
       - run: echo Hello $GREET
       
 # runs:
