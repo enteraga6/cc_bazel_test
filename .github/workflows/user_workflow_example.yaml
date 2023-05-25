@@ -14,6 +14,6 @@ jobs:
 #                 persist-credentials: false
               
 #             - name: Reusable Workflow
-          uses: enteraga6/cc_bazel_test/internal/example/action.yaml@main
+          uses: enteraga6/cc_bazel_test/.github/workflows/reusable_example.yaml@main
           with:
             who-to-greet: 'Noah'
