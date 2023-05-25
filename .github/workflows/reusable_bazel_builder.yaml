@@ -3,10 +3,10 @@ name: Bazel Workflow
 on:
   workflow_call:
     inputs:
-      repo_path:
-        description: "Path to the cloned repo"
-        required: true
-        type: string
+#       repo_path:
+#         description: "Path to the cloned repo"
+#         required: true
+#         type: string
       targets:
         description: "Artifacts to build"
         required: true
@@ -22,23 +22,28 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps: 
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+        with: 
+          persist-credentials: false
+          
       - name: Setup Bazelisk
         uses: bazelbuild/setup-bazelisk@v2
       
       - name: Build Artifacts
         env:
           # REPO_PATH: ${{ inputs.repo_path }}
-          # TARGETS: ${{ inputs.targets }}
-          # FLAGS: ${{ inputs.flags }}
+          TARGETS: ${{ inputs.targets }}
+          FLAGS: ${{ inputs.flags }}
+          #cd ./${{ inputs.repo_path }} removed this after mkdir binaries couldnt comment might need
         run: | 
           set -euo pipefail
 
           mkdir binaries
 
-          cd ./${{ inputs.repo_path }}
-          bazel build ${{ inputs.flags }} ${{ inputs.targets }}
+          bazel build ${{ FLAGS }} ${{ TARGETS }}
           
-          for TARGET in ${{ inputs.targets }}: do
+          for TARGET in ${{ TARGETS }}: do
             CD_PATH = ${TARGET%:*}
             CD_PATH = ${CD_PATH////}
             BINARY_NAME = ${test#*:}
