@@ -22,6 +22,7 @@ jobs:
 #         repo_path: "./cc_bazel_test"     #USER INPUTTED MATERIAL??? wonder if can grab it from checkout
 #         targets: "//src:fib //src:hello" #USER INPUTTED MATERIAL
     download:
+            needs: [build]
             runs-on: ubuntu-latest
             steps:
             - name: Download Binaries
