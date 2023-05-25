@@ -2,4 +2,9 @@ name: Echo Test
 
 on: [workflow_call]
 
-run: echo "Test"
+jobs:
+  echo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo hello
+        run: echo "hello"
