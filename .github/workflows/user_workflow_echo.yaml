@@ -6,14 +6,14 @@ on:
         types: [created]
 jobs:
     build:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout Repo
-              uses: actions/checkout@v3
-              with: 
-                persist-credentials: false
+#         runs-on: ubuntu-latest
+#         steps:
+#             - name: Checkout Repo
+#               uses: actions/checkout@v3
+#               with: 
+#                 persist-credentials: false
               
-            - name: Reusable Workflow
-              uses: ./internal/echo_test
-              with:
-                who-to-greet: 'Noah'
+#             - name: Reusable Workflow
+          uses: enteraga6/cc_bazel_test/.github/workflows/reusable_echo_test.yaml@main
+          with:
+            who-to-greet: 'Noah'
