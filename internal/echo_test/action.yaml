@@ -13,4 +13,4 @@ runs:
   steps:
     - name: Echo
       shell: bash
-      run: echo Hello
+      run: echo Hello ${{ inputs.who-to-greet }}
