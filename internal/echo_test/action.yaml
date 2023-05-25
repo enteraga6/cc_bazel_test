@@ -2,6 +2,12 @@ name: Echo Test
 
 on: [workflow_call]
 
+inputs:
+  who-to-greet:  # id of input
+      description: 'Who to greet'
+      required: true
+      default: 'World'
+      
 runs:
   using: "composite"
   steps:
