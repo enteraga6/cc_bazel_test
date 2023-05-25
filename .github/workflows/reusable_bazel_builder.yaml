@@ -55,6 +55,7 @@ jobs:
             
             BINARY_NAME = ${test#*:}
             cp bazel-bin/CD_PATH/BINARY_NAME ./binaries
+          done
 
       - name: 'Upload binaries'
         uses: actions/upload-artifact@v3
