@@ -52,7 +52,7 @@ jobs:
             echo "took off colon"
             CD_PATH=${CD_PATH////}
             echo "took off slanted"
-            BINARY_NAME=${test#*:}
+            BINARY_NAME=${TARGET#*:}
             cp "bazel-bin/$CD_PATH/$BINARY_NAME" ./binaries
           done
 
