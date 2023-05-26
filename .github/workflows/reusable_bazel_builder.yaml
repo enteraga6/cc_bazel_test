@@ -45,13 +45,14 @@ jobs:
           
           echo "built correctly"
           
-          for TARGET in ${{ inputs.targets }}: do
-            CD_PATH=(${TARGET%:*})
+          IFS=' ' read -r -a targets <<< "${{ inputs.targets }}"
+          for TARGET in "${targetes[@]}": do
+            CD_PATH=${TARGET%:*}
             echo "took off colon"
-            CD_PATH=(${CD_PATH////})
+            CD_PATH=${CD_PATH////}
             echo "took off slanted"
             BINARY_NAME=${test#*:}
-            cp bazel-bin/CD_PATH/BINARY_NAME ./binaries
+            cp "bazel-bin/$CD_PATH/$BINARY_NAME" ./binaries
           done
 
       - name: 'Upload binaries'
