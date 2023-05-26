@@ -46,7 +46,7 @@ jobs:
           echo "built correctly"
           
           IFS=' ' read -r -a targets <<< "${{ inputs.targets }}"
-          for TARGET in "${targetes[@]}": do
+          for TARGET in "${targets[@]}": do
             echo "start loop"
             CD_PATH=$(echo $TARGET | cut -d: -f1)
             echo "took off colon"
