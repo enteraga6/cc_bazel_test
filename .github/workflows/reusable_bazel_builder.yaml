@@ -47,11 +47,12 @@ jobs:
           
           IFS=' ' read -r -a targets <<< "${{ inputs.targets }}"
           for TARGET in "${targetes[@]}": do
-            CD_PATH=${TARGET%:*}
+            echo "start loop"
+            CD_PATH=$(echo $TARGET | cut -d: -f1)
             echo "took off colon"
-            CD_PATH=${CD_PATH////}
+            CD_PATH=$(echo $CD_PATH | tr '/' '')
             echo "took off slanted"
-            BINARY_NAME=${test#*:}
+            BINARY_NAME=$(echo $TARGET | cut -d: -f2)
             cp "bazel-bin/$CD_PATH/$BINARY_NAME" ./binaries
           done
 
